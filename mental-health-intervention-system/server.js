@@ -56,24 +56,6 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
-} else {
-  // Development mode - serve a simple message
-  app.get('/', (req, res) => {
-    res.json({
-      message: 'Mental Health Intervention System API',
-      status: 'running',
-      frontend: 'Please start the React app with: cd client && npm start',
-      endpoints: {
-        auth: '/api/auth',
-        chat: '/api/chat',
-        appointments: '/api/appointments',
-        resources: '/api/resources',
-        peerSupport: '/api/peer-support',
-        admin: '/api/admin',
-        screening: '/api/screening'
-      }
-    });
-  });
 }
 
 // Socket.io for real-time chat
